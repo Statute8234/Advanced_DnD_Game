@@ -1,0 +1,42 @@
+from ursina import *
+from ursina.shaders import lit_with_shadows_shader
+from ursina.prefabs.health_bar import HealthBar
+
+# hand made files
+from player import Gamepadcontroller
+from pause_menu import PauseMenu
+from hand import Sword, Shield
+from pick_up_items import Item
+
+import sys; print('Python %s on %s' % (sys.version, sys.platform))
+
+
+gamepad = ['gamepad dpad left', 'shift', 'gamepad dpad right', 'gamepad dpad down', 'gamepad dpad up', 'gamepad x', 'gamepad a', 'gamepad b', 'gamepad y', 'gamepad left shoulder', 'gamepad right shoulder', 'gamepad back', 'gamepad start', 'gamepad left stick', 'gamepad right stick', 'gamepad left stick x', 'gamepad left stick y', 'gamepad right stick x', 'gamepad right stick y', 'gamepad left trigger', 'gamepad right trigger']
+
+def update():
+    if player.y <= -6:
+        player.position = (0,0,0)
+    if held_keys['gamepad start']:
+        PauseMenu()
+
+# inventory
+inventory = []
+
+# game
+app = Ursina()
+# player
+player = Gamepadcontroller(z=-10,speed=8)
+hp = HealthBar(parent = camera.ui,color=color.red)
+# player_hand
+shield = Shield()
+sword = Sword()
+# items
+for i in range(5):
+    items = Item(position = (i,0,0))
+# ground
+ground = Entity(model='plane', collider='box', scale=64, texture='grass', texture_scale=(4,4),shader = lit_with_shadows_shader)
+# sky
+sun = DirectionalLight()
+sun.look_at(Vec3(1,-1,-1))
+Sky()
+app.run()
