@@ -1,6 +1,8 @@
 from ursina import *
 from ursina.shaders import lit_with_shadows_shader
 
+inventory = []
+
 # sword
 class Sword(Entity):
     def __init__(self,position=(0, 0, 0)):
@@ -18,10 +20,10 @@ class Sword(Entity):
 
     def update(self):
         if held_keys['gamepad right trigger']:
-            self.animate_rotation((50,100,180),duration = 0.5)
-            self.animate_position((0.2,0.5,0),duration = 0.5)
-            self.animate_rotation((90, 90, 180), delay = 1, duration=0.5)
-            self.animate_position((0.5, 0.5, 0), delay = 1,duration=0.5)
+            self.animate_rotation((50,-100,180),duration = 0.2)
+            self.animate_position((0,0.2,0),duration = 0.2)
+            self.animate_rotation((90, 90, 180), delay = 0.5, duration=0.5)
+            self.animate_position((0.5, 0.5, 0), delay = 0.5,duration=0.5)
 
 # shield
 class Shield(Entity):
