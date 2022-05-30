@@ -1,6 +1,10 @@
 import random
+
+import colors
 from ursina import *
 from ursina.shaders import lit_with_shadows_shader
+
+from hand import inventory
 
 class Item(Button):
     def __init__(self,position=(0, 0, 0)):
@@ -47,4 +51,25 @@ class Item(Button):
         if self.hovered:
             if held_keys['gamepad y']:
                 print(self.name,self.attack,self.amount,self.weight,self.cost)
+                inventory.append([self.name,self.attack,self.amount,self.weight,self.cost])
                 destroy(self)
+
+class Chest(Button):
+    def __init__(self,position=(0, 0, 0)):
+        super().__init__()
+        self.parent = scene
+        self.position = position
+        self.model = 'chest/chestlx_closed.obj'
+        self.collider = 'mesh'
+        self.color = color.brown
+        self.clicked = False
+
+    def input(self, key):
+        if self.hovered:
+            if self.clicked == False:
+                if held_keys['gamepad y']:
+                    self.z = self.z + 4
+                    self.model = 'chest/chestlx.obj'
+                    self.collider = None
+                    for y in range(5):
+                        item = Item(position = self.position)
