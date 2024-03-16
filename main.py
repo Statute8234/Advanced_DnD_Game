@@ -9,8 +9,8 @@ from ursina.prefabs.health_bar import HealthBar
 from player import Gamepadcontroller
 from mainmenu import MainMenu
 from hand import Sword, Shield,inventory
-from pick_up_items import Chest
-from player_storige import Player_Inventory
+from pickItems import Chest
+from playerStorige import Player_Inventory
 
 ursina.SmoothFollow = True
 gamepad = ['gamepad dpad left', 'shift', 'gamepad dpad right', 'gamepad dpad down', 'gamepad dpad up', 'gamepad x', 'gamepad a', 'gamepad b', 'gamepad y', 'gamepad left shoulder', 'gamepad right shoulder', 'gamepad back', 'gamepad start', 'gamepad left stick', 'gamepad right stick', 'gamepad left stick x', 'gamepad left stick y', 'gamepad right stick x', 'gamepad right stick y', 'gamepad left trigger', 'gamepad right trigger']
