@@ -1,4 +1,4 @@
-# Advanced_DnD_Game
+# VirtualArsenal
 
 The project uses the Ursina library to create an inventory system for players, enhancing visual presentation. The inventory allows for item management, equipping, and exiting. The GamepadController class provides a comprehensive controller mechanism for smooth player movement and interaction, including camera controls, gravity settings, and jump mechanics.
 
