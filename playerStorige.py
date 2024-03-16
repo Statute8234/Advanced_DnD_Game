@@ -2,7 +2,7 @@ from ursina import *
 from ursina.shaders import lit_with_shadows_shader
 
 from hand import Sword, Shield,inventory
-from pick_up_items import inventory
+from pickItems import inventory
 
 # inventory
 class Player_Inventory(Entity):
