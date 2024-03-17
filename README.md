@@ -7,7 +7,7 @@ The project uses the Ursina library to create an inventory system for players, e
 - [About](#about)
 - [Features](#features)
 - [Imports](#Imports)
-- [Rating: 8/10](#Rating)
+- [Rating: 7.2/10](#Rating)
 
 # About
 
